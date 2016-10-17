@@ -13,9 +13,7 @@ EXPOSE 5555
 EXPOSE 5900
 
 # Install Android System Image(s)
-RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | $ANDROID_HOME/tools/android update sdk --filter \
-	sys-img-x86_64-google_apis-22 \
---no-ui --all
+RUN (echo y | $ANDROID_HOME/tools/android update sdk --no-ui --filter sys-img-x86_64-google_apis-22 --all)
 
 # Create fake keymap file
 RUN mkdir $ANDROID_HOME/tools/keymaps && \
